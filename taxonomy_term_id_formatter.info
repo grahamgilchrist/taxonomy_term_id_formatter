@@ -1,0 +1,8 @@
+name = 'Taxonomy Term ID Formatter'
+description = 'Provides a field formatter for Taxonomy fields to format them as a Term ID.'
+core = 7.x
+package = Fields
+dependencies[] = taxonomy
+
+version = "7.x-1.0"
+core = "7.x"

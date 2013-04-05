@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function taxonomy_term_id_formatter_field_formatter_info() {
+  return array(
+    'taxonomy_term_reference_termid' => array(
+      'label' => t('Term ID'),
+      'field types' => array('taxonomy_term_reference'),
+    )
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function taxonomy_term_id_formatter_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  switch ($display['type']) {
+    case 'taxonomy_term_reference_termid':
+      foreach ($items as $delta => $item) {
+          $element[$delta] = array(
+            '#markup' => check_plain($item['tid']),
+          );
+      }
+      break;
+  }
+
+  return $element;
+}
